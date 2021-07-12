@@ -16,6 +16,7 @@
     "ext-curl": "*",
     "ext-json": "*",
     "ext-pdo": "*",
+    "doctrine/annotations": "^1.13",
     "doctrine/migrations": "^3.1",
     "doctrine/orm": "^2.9",
     "gedmo/doctrine-extensions": "^3.1",

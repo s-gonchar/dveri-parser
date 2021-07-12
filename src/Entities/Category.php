@@ -12,7 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @Gedmo\Tree(type="nested")
  * @ORM\Table(
- *     name="ategories",
+ *     name="categories",
  * )
  * @ORM\Entity(repositoryClass=CategoryNestedTreeRepository::class)
  */

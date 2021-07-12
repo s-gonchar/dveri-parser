@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Entities\AccessoryGroup;
 
 
-class AccessoryGroupRepository
+class AccessoryGroupRepository extends AbstractRepository
 {
     public function __construct(EntityManagerInterface $entityManager)
     {
