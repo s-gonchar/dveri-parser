@@ -37,7 +37,7 @@ class Category
 
     /**
      * @Gedmo\Slug(fields={"title"})
-     * @ORM\Column(length=64)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true, unique=true)
      */
     private $slug;
 
@@ -55,7 +55,7 @@ class Category
 
     /**
      * @Gedmo\TreeParent
-     * @ORM\ManyToOne(targetEntity="ResourceCategory", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $parent;
@@ -73,7 +73,7 @@ class Category
     private $level;
 
     /**
-     * @ORM\OneToMany(targetEntity="ResourceCategory", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
      */
     private $children;
 
@@ -160,30 +160,14 @@ class Category
         return (string) $this->getTitle();
     }
 
-    /**
-     * @return int
-     */
-    public function getShowcaseId()
-    {
-        return $this->showcaseId;
-    }
 
-    /**
-     * @param int $showcaseId
-     */
-    public function setShowcaseId($showcaseId): void
+    public static function create($title, $description, ?Category $parent = null): self
     {
-        $this->showcaseId = $showcaseId;
-    }
+        $category = new self();
+        $category->setTitle($title);
+        $category->setDescription($description);
+        $category->setParent($parent);
 
-    public static function create($title, $description, int $showcaseId, ?ResourceCategory $parent = null): self
-    {
-        $resourceCategory = new self();
-        $resourceCategory->setTitle($title);
-        $resourceCategory->setDescription($description);
-        $resourceCategory->setParent($parent);
-        $resourceCategory->setShowcaseId($showcaseId);
-
-        return $resourceCategory;
+        return $category;
     }
 }

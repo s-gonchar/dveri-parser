@@ -17,18 +17,18 @@
     "ext-json": "*",
     "ext-pdo": "*",
     "doctrine/annotations": "^1.13",
-    "doctrine/migrations": "^3.1",
+    "doctrine/migrations": "^3.2",
     "doctrine/orm": "^2.9",
     "gedmo/doctrine-extensions": "^3.1",
     "guzzlehttp/guzzle": "^7.3",
-    "paquettg/php-html-parser": "^3.1",
     "php-di/php-di": "^6.3",
     "symfony/cache": "^5.3",
     "symfony/yaml": "^5.3",
     "vlucas/phpdotenv": "^5.3"
   },
   "autoload": {
-    "psr-0": {"": "src/"},
-    "Gedmo\\": "vendor/gedmo/doctrine-extensions/lib/"
+    "psr-4": {
+      "": "src/"
+    }
   }
 }
